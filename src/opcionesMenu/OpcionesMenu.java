@@ -70,8 +70,8 @@ public class OpcionesMenu {
 		System.out.println("*********************************************");
 		String numCatastro = Teclado.pideDatoCadena("Introduzca el nº de catastro: ");
 		
-		TpPAGO tipoPAGO ;
-		tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago: Tarjeta, Paypal, Efectivo, Todo: "));
+
+		TpPAGO tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago: Tarjeta, Paypal, Efectivo, Todo: "));
 
 		while (tipoPAGO == null) { 
 			try {
@@ -81,7 +81,7 @@ public class OpcionesMenu {
 			}
 		}
 		
-			
+	
 
 		Integer numHabitaciones = 0;
 		do {
