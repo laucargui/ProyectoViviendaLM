@@ -199,7 +199,7 @@ public static void aniadirParticular() {
 					((Hotel)v).setNumCatastro(Teclado.pideDatoCadena("Introduzca el n∫ de catastro: "));
 					break;
 				case 2:
-				    ((Hotel)v).setTipoPAGO(utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago posible: Tarjeta, Paypal, Efectivo, Todo: ")));
+				    ((Hotel)v).setTpPAGOHospedaje(utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago posible: Tarjeta, Paypal, Efectivo, Todo: ")));
 					break;
 				case 3:
 				   ((Hotel)v).setNumHabitaciones(Teclado.pideDatoEntero("Introduzca el nuevo n√∫mero de habitaciones: "));
