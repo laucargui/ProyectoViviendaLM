@@ -70,13 +70,19 @@ public class OpcionesMenu {
 		System.out.println("*********************************************");
 		String numCatastro = Teclado.pideDatoCadena("Introduzca el nº de catastro: ");
 		
-		TpPAGO tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago: Tarjeta, Paypal, Efectivo, Todo: "));
-		if (tipoPAGO == null) {
-			do {
-				System.out.println("Debe escribir un tipo válido de pago.");
-				tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago: Tarjeta, Paypal, Efectivo, Todo: "));
-			} while (tipoPAGO == null);
+		TpPAGO tipoPAGO ;
+		tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago: Tarjeta, Paypal, Efectivo, Todo: "));
+
+		while (tipoPAGO == null) { 
+			try {
+				System.out.println("Debe escribir un tipo de pago válido.");
+		tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago: Tarjeta, Paypal, Efectivo, Todo: "));
+			}catch (Exception e) {
+			}
+		}
 		
+			
+
 		Integer numHabitaciones = 0;
 		do {
 		try {
@@ -98,17 +104,14 @@ public class OpcionesMenu {
 			}while (numComedores ==0);
 
 		TpEPO tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
-		if (tipoEPO ==null) {
-			do {
-				System.out.println("Debe escoger una época válida.");
-				 tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
-			}while(tipoPAGO ==null);
-		}
+	
 		controlador.GestionLista.anadir(new Hotel(numCatastro, tipoPAGO, numHabitaciones, numComedores,tipoEPO));
 		listadoVivienda();
 
 	}
-	}
+
+
+	
 	
 
 	public static void aniadirPension() {
