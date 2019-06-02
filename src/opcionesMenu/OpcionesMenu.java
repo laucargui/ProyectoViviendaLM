@@ -81,8 +81,6 @@ public class OpcionesMenu {
 			}
 		}
 		
-	
-
 		Integer numHabitaciones = 0;
 		do {
 		try {
@@ -104,6 +102,13 @@ public class OpcionesMenu {
 			}while (numComedores ==0);
 
 		TpEPO tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
+		while (tipoEPO == null) { 
+			try {
+				System.out.println("Debe escribir una época válida.");
+		tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
+			}catch (Exception e) {
+			}
+		}
 	
 		controlador.GestionLista.anadir(new Hotel(numCatastro, tipoPAGO, numHabitaciones, numComedores,tipoEPO));
 		listadoVivienda();
