@@ -13,8 +13,8 @@ public class GestionLista {
 	
 	
 	
-	public static void anadir(Vivienda v) {
-		lstViviendas.add(v);
+	public static void anadir(Vivienda viv) {
+		lstViviendas.add(viv);
 	}
 	
 
