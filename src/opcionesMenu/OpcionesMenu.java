@@ -210,10 +210,41 @@ public static void aniadirParticular() {
 	System.out.println("\nIntroduzca los siguientes datos para la vivienda Particular");
 	System.out.println("**********************************************************");
 	String numCatastro = Teclado.pideDatoCadena("Introduzca el nº de catastro: ");		
-	Integer superficie = Teclado.pideDatoEntero("Introduzca la superficie: ");
-	Integer numAireAcond =  Teclado.pideDatoEntero("Introduzca nº de aparatos de aire acondicionado: ");
-	Integer numBanos = Teclado.pideDatoEntero("Introduzca el nº de baÃ±os: ");
+	Integer superficie =0;
+	do {
+		try {
+			superficie = Teclado.pideDatoEntero("Introduzca la superficie, en metros: ");
+		}catch (Exception e) {
+			System.out.println("Debe escribir un número");
+		}
+	}while (superficie ==0);
+	
+	Integer numAireAcond =0;
+	do {
+		try {
+			numAireAcond =  Teclado.pideDatoEntero("Introduzca el nº de aparatos de aire acondicionado: ");
+		}catch (Exception e) {
+			System.out.println("Debe escribir un número");
+		}
+	}while (numAireAcond ==0);
+	
+	Integer numBanos=0;
+	do {
+		try {
+			numBanos = Teclado.pideDatoEntero("Introduzca el nº de baños: ");
+		}catch (Exception e) {
+			System.out.println("Debe escribir un número");
+		}
+	}while (numBanos ==0);
+	
 	TpCAS tipoCASA = utilidades.ConvertirTipo.toTpCAS(Teclado.pideDatoCadena("Introduzca el tipo de casa: ADOSADO, PAREADO, PISO ")); 
+	while (tipoCASA == null) { 
+		try {
+			System.out.println("Debe escribir un tipo de casa válido.");
+	tipoCASA = utilidades.ConvertirTipo.toTpCAS(Teclado.pideDatoCadena("Introduzca el tipo de casa: ADOSADO, PAREADO, PISO "));
+		}catch (Exception e) {
+		}
+	}
 	
 	controlador.GestionLista.anadir(new Particular(numCatastro, superficie, numAireAcond, numBanos, tipoCASA));
 	listadoVivienda();
