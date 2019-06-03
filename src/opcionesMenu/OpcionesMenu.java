@@ -468,12 +468,15 @@ public static void aniadirParticular() {
 			}
 			if(num<1 || num>GestionLista.tamanio()) {
 				System.out.println("Debe elegir un elemento de la lista.");	
-			}else {
+			}else {	
+			
 			controlador.GestionLista.borrar(num-1);
 			listadoVivienda();
 			}
 		}
 	}
+	
+	
 	
 	
 	/*try {
