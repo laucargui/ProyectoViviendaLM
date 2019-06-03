@@ -145,7 +145,6 @@ public class OpcionesMenu {
 		
 		controlador.GestionLista.anadir(new Pension(numCatastro, tipoPAGO, opinionViajeros, paxPorHabitacion, tipoEPO));
 		listadoVivienda();
-		
 	}
 	
 	public static void aniadirVacacional() {
