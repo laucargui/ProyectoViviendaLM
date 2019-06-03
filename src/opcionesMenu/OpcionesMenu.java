@@ -2,9 +2,7 @@ package opcionesMenu;
 
 import java.util.Collections;
 import java.util.Comparator;
-
 import controlador.Comparador;
-import hospedaje.Hospedaje;
 import hospedaje.Hotel;
 import hospedaje.Pension;
 import tipos.TpCAS;
@@ -67,7 +65,6 @@ public class OpcionesMenu {
 		
 
 		TpPAGO tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago: Tarjeta, Paypal, Efectivo, Todo: "));
-
 		while (tipoPAGO == null) { 
 			try {
 				System.out.println("Debe escribir un tipo de pago válido.");
@@ -104,10 +101,9 @@ public class OpcionesMenu {
 			}catch (Exception e) {
 			}
 		}
-	
-		controlador.GestionLista.anadir(new Hotel(numCatastro, tipoPAGO, numHabitaciones, numComedores,tipoEPO));
-		listadoVivienda();
-
+			controlador.GestionLista.anadir(new Hotel(numCatastro, tipoPAGO, numHabitaciones, numComedores,tipoEPO));
+			listadoVivienda();
+		
 	}
 
 
@@ -117,11 +113,35 @@ public class OpcionesMenu {
 		System.out.println("\nIntroduzca los siguientes datos para la Pensión");
 		System.out.println("***********************************************");
 		String numCatastro = Teclado.pideDatoCadena("Introduzca el nº de catastro: ");
-		TpPAGO tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago posible: Tarjeta, Paypal, Efectivo, Todo: "));
-		String opinionViajeros = Teclado.pideDatoCadena("Introduzca su opinión: ");
-		Integer paxPorHabitacion = Teclado.pideDatoEntero("Introduzca número de personas por habitación: ");
-		TpEPO tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
 		
+		TpPAGO tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago posible: Tarjeta, Paypal, Efectivo, Todo: "));
+		while (tipoPAGO == null) { 
+			try {
+				System.out.println("Debe escribir un tipo de pago válido.");
+		tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago: Tarjeta, Paypal, Efectivo, Todo: "));
+			}catch (Exception e) {
+			}
+		}
+		
+		String opinionViajeros = Teclado.pideDatoCadena("Introduzca su opinión: ");
+		
+		Integer paxPorHabitacion = 0;
+		do {
+			try {
+				paxPorHabitacion = Teclado.pideDatoEntero("Introduzca número de personas por habitación: ");
+			}catch (Exception e) {
+				System.out.println("Debe escribir un número");	
+			}
+		}while (paxPorHabitacion ==0);
+		
+		TpEPO tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
+		while (tipoEPO == null) { 
+			try {
+				System.out.println("Debe escribir un tipo de época válido.");
+		tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
+			}catch (Exception e) {
+			}
+		}
 		
 		controlador.GestionLista.anadir(new Pension(numCatastro, tipoPAGO, opinionViajeros, paxPorHabitacion, tipoEPO));
 		listadoVivienda();
@@ -134,6 +154,15 @@ public class OpcionesMenu {
 		System.out.println("***********************************************************");
 		String numCatastro = Teclado.pideDatoCadena("Introduzca el nº de catastro: ");
 		Integer superficie = Teclado.pideDatoEntero("Introduzca la superficie, en metros: ");
+		
+		/*Integer numComedores = 0;
+		do {
+			try {
+				numComedores = Teclado.pideDatoEntero("Introduzca el nº de comedores: ");
+			}catch (Exception e) {
+				System.out.println("Debe escribir un número");		
+			}
+			}while (numComedores ==0);*/
 		Integer numAireAcond =  Teclado.pideDatoEntero("Introduzca el nº de aparatos de aire acondicionado: ");
 		Integer diasOcupado = Teclado.pideDatoEntero("Introduzca los días de cocupación: ");
 		Integer distanciaPlaya = Teclado.pideDatoEntero("Introduzca la distacia a la playa, en metros: ");
