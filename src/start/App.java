@@ -20,7 +20,6 @@ public class App {
 		controlador.GestionLista.anadir(new Vacacional("VCVCV", 2,10, 2,20, TpEPO.VERANO));
 		controlador.GestionLista.anadir(new Particular("PRTBC", 10,1, 2, TpCAS.PISO));
 		
-
 		int opcion = 0;
 
 		do {

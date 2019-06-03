@@ -300,7 +300,7 @@ public static void aniadirParticular() {
 				case 5:
 				  ((Hotel)v).setTipoEPO(utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual ")));	
 					break;
-				}	      
+			     	}	      
 				  }
 				}
 				
