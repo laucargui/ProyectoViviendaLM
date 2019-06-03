@@ -456,11 +456,29 @@ public static void aniadirParticular() {
 			System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
 			listadoVivienda();
 			System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
-			int num = Teclado.pideDatoEntero("\nIntroduzca el nº de la vivienda a borrar: ");
+			int num=0;
+			try {
+			num = Teclado.pideDatoEntero("\nIntroduzca el nº de la vivienda a borrar: ");
+			}catch(Exception e) {
+			}
+			if(num<0 || num>GestionLista.tamanio()) {
+				System.out.println("Debe escoger un elemento de la lista.");	
+			}else {
 			controlador.GestionLista.borrar(num-1);
 			listadoVivienda();
+			}
 		}
 	}
+	
+	
+	/*try {
+		opcion = Teclado.pideDatoEntero("Opción escogida: ");
+		}
+		catch(Exception e) {
+		}
+		if(opcion <1 || opcion >4) {
+			System.out.println("Debe escoger un número del 1 al 4.");
+		}else {*/ 
 	
 	public static void listarVivienda() {
 
