@@ -35,7 +35,7 @@ public class App {
 			ejecutarOpcion(opcion);
 			}
 		} while (opcion != 5);
-		System.out.println("Has salido del programa");
+		System.out.println("Ha salido del programa");
 		
 	}
 
