@@ -37,7 +37,7 @@ public class OpcionesMenu {
 		catch(Exception e) {
 		}
 		if(opcion <1 || opcion >4) {
-			System.out.println("\nDebe elegir un número del 1 al 4.");
+			System.out.println("Debe elegir un número del 1 al 4.");
 		}else {
 		
 }
@@ -63,7 +63,7 @@ public class OpcionesMenu {
 		
 		System.out.println("\nIntroduzca los siguientes datos para el Hotel");
 		System.out.println("*********************************************");
-		String numCatastro = Teclado.pideDatoCadena("\nIntroduzca el nº de catastro: ");
+		String numCatastro = Teclado.pideDatoCadena("Introduzca el nº de catastro: ");
 		
 
 		TpPAGO tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago: Tarjeta, Paypal, Efectivo, Todo: "));
@@ -81,7 +81,7 @@ public class OpcionesMenu {
 		numHabitaciones = Teclado.pideDatoEntero("Introduzca el nº de habitaciones: ");
 		
 		}catch (Exception e) {		
-			System.out.println("Debe escribir un número");
+			System.out.println("\nDebe escribir un número");
 		}
 		}while (numHabitaciones ==0);
 		
@@ -91,20 +91,21 @@ public class OpcionesMenu {
 			try {
 				numComedores = Teclado.pideDatoEntero("Introduzca el nº de comedores: ");
 			}catch (Exception e) {
-				System.out.println("Debe escribir un número");		
+				System.out.println("\nDebe escribir un número");		
 			}
 			}while (numComedores ==0);
 
 		TpEPO tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
 		while (tipoEPO == null) { 
 			try {
-				System.out.println("Debe escribir una época válida.");
+				System.out.println("\nDebe escribir una época válida.");
 		tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
 			}catch (Exception e) {
 			}
 		}
 			controlador.GestionLista.anadir(new Hotel(numCatastro, tipoPAGO, numHabitaciones, numComedores,tipoEPO));
-			listadoVivienda();
+			System.out.println("\nHa añadido un nuevo HOTEL a la lista.");
+			System.out.println("Para ver la lista de viviendas pulse la opción 4 en el Menú Principal.");
 		
 	}
 
@@ -119,7 +120,7 @@ public class OpcionesMenu {
 		TpPAGO tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago posible: Tarjeta, Paypal, Efectivo, Todo: "));
 		while (tipoPAGO == null) { 
 			try {
-				System.out.println("Debe escribir un tipo de pago válido.");
+				System.out.println("\nDebe escribir un tipo de pago válido.");
 		tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago: Tarjeta, Paypal, Efectivo, Todo: "));
 			}catch (Exception e) {
 			}
@@ -132,21 +133,23 @@ public class OpcionesMenu {
 			try {
 				paxPorHabitacion = Teclado.pideDatoEntero("Introduzca número de personas por habitación: ");
 			}catch (Exception e) {
-				System.out.println("Debe escribir un número");	
+				System.out.println("\nDebe escribir un número");	
 			}
 		}while (paxPorHabitacion ==0);
 		
 		TpEPO tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
 		while (tipoEPO == null) { 
 			try {
-				System.out.println("Debe escribir un tipo de época válido.");
+				System.out.println("\nDebe escribir un tipo de época válido.");
 		tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
 			}catch (Exception e) {
 			}
 		}
 		
 		controlador.GestionLista.anadir(new Pension(numCatastro, tipoPAGO, opinionViajeros, paxPorHabitacion, tipoEPO));
-		listadoVivienda();
+		System.out.println("\nHa añadido una nueva PENSIÓN a la lista.");
+		System.out.println("Para ver el listado de viviendas pulse la opción 4 en el Menú Principal.");
+	
 	}
 	
 	public static void aniadirVacacional() {
@@ -160,7 +163,7 @@ public class OpcionesMenu {
 			try {
 				superficie = Teclado.pideDatoEntero("Introduzca la superficie, en metros: ");
 			}catch (Exception e) {
-				System.out.println("Debe escribir un número");
+				System.out.println("\nDebe escribir un número");
 			}
 		}while (superficie ==0);
 		
@@ -169,7 +172,7 @@ public class OpcionesMenu {
 			try {
 				numAireAcond =  Teclado.pideDatoEntero("Introduzca el nº de aparatos de aire acondicionado: ");
 			}catch (Exception e) {
-				System.out.println("Debe escribir un número");
+				System.out.println("\nDebe escribir un número");
 			}
 		}while (numAireAcond ==0);
 		
@@ -178,7 +181,7 @@ public class OpcionesMenu {
 			try {
 				diasOcupado = Teclado.pideDatoEntero("Introduzca los días de cocupación: ");
 			}catch (Exception e) {
-				System.out.println("Debe escribir un número");
+				System.out.println("\nDebe escribir un número");
 			}
 		}while (diasOcupado ==0);
 		
@@ -187,21 +190,21 @@ public class OpcionesMenu {
 			try {
 				distanciaPlaya = Teclado.pideDatoEntero("Introduzca la distacia a la playa, en metros: ");
 			}catch (Exception e) {
-				System.out.println("Debe escribir un número");
+				System.out.println("\nDebe escribir un número");
 			}
 		}while (distanciaPlaya ==0);
 		
 		TpEPO tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual "));
 		while (tipoEPO == null) { 
 			try {
-				System.out.println("Debe escribir un tipo de época válido.");
+				System.out.println("\nDebe escribir un tipo de época válido.");
 		tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
 			}catch (Exception e) {
 			}
 		}
 		controlador.GestionLista.anadir(new Vacacional(numCatastro, superficie,numAireAcond, diasOcupado,distanciaPlaya, tipoEPO));
-		listadoVivienda();
-		
+		System.out.println("\nHa añadido una nueva VIVIENDA VACACIONAL a la lista.");
+		System.out.println("Para ver el listado de viviendas pulse la opción 4 en el Menú Principal.");
 	}
 	
 
@@ -216,7 +219,7 @@ public static void aniadirParticular() {
 		try {
 			superficie = Teclado.pideDatoEntero("Introduzca la superficie, en metros: ");
 		}catch (Exception e) {
-			System.out.println("Debe escribir un número");
+			System.out.println("\nDebe escribir un número");
 		}
 	}while (superficie ==0);
 	
@@ -225,7 +228,7 @@ public static void aniadirParticular() {
 		try {
 			numAireAcond =  Teclado.pideDatoEntero("Introduzca el nº de aparatos de aire acondicionado: ");
 		}catch (Exception e) {
-			System.out.println("Debe escribir un número");
+			System.out.println("\nDebe escribir un número");
 		}
 	}while (numAireAcond ==0);
 	
@@ -234,26 +237,27 @@ public static void aniadirParticular() {
 		try {
 			numBanos = Teclado.pideDatoEntero("Introduzca el nº de baños: ");
 		}catch (Exception e) {
-			System.out.println("Debe escribir un número");
+			System.out.println("\nDebe escribir un número");
 		}
 	}while (numBanos ==0);
 	
 	TpCAS tipoCASA = utilidades.ConvertirTipo.toTpCAS(Teclado.pideDatoCadena("Introduzca el tipo de casa: ADOSADO, PAREADO, PISO ")); 
 	while (tipoCASA == null) { 
 		try {
-			System.out.println("Debe escribir un tipo de casa válido.");
+			System.out.println("\nDebe escribir un tipo de casa válido.");
 	tipoCASA = utilidades.ConvertirTipo.toTpCAS(Teclado.pideDatoCadena("Introduzca el tipo de casa: ADOSADO, PAREADO, PISO "));
 		}catch (Exception e) {
 		}
 	}
 	
 	controlador.GestionLista.anadir(new Particular(numCatastro, superficie, numAireAcond, numBanos, tipoCASA));
-	listadoVivienda();
+	System.out.println("\nHa añadido una nueva VIVIENDA PARTICULAR a la lista.");
+	System.out.println("Para ver el listado de viviendas pulse la opción 4 en el Menú Principal.");
 }
 
 	public static void modificarVivienda() {
 		
-		System.out.println("\n Ha elegido la opción de modificar vivienda");
+		System.out.println("\nHa elegido la opción de modificar vivienda");
 		System.out.println("******************************************");
 		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
 		listadoVivienda();
