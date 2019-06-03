@@ -31,12 +31,13 @@ public class OpcionesMenu {
 			System.out.println("4. Particular.");
 		
 		try {
-		opcion = Teclado.pideDatoEntero("Opción escogida: ");
+			System.out.println("***************");
+		opcion = Teclado.pideDatoEntero("Opción Elegida: ");
 		}
 		catch(Exception e) {
 		}
 		if(opcion <1 || opcion >4) {
-			System.out.println("Debe escoger un número del 1 al 4.");
+			System.out.println("\nDebe elegir un número del 1 al 4.");
 		}else {
 		
 }
@@ -62,13 +63,13 @@ public class OpcionesMenu {
 		
 		System.out.println("\nIntroduzca los siguientes datos para el Hotel");
 		System.out.println("*********************************************");
-		String numCatastro = Teclado.pideDatoCadena("Introduzca el nº de catastro: ");
+		String numCatastro = Teclado.pideDatoCadena("\nIntroduzca el nº de catastro: ");
 		
 
 		TpPAGO tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago: Tarjeta, Paypal, Efectivo, Todo: "));
 		while (tipoPAGO == null) { 
 			try {
-				System.out.println("Debe escribir un tipo de pago válido.");
+				System.out.println("\nDebe elegir un tipo de pago válido.");
 		tipoPAGO = utilidades.ConvertirTipo.toTpPAGO(Teclado.pideDatoCadena("Introduzca el tipo de pago: Tarjeta, Paypal, Efectivo, Todo: "));
 			}catch (Exception e) {
 			}
@@ -461,8 +462,8 @@ public static void aniadirParticular() {
 			num = Teclado.pideDatoEntero("\nIntroduzca el nº de la vivienda a borrar: ");
 			}catch(Exception e) {
 			}
-			if(num<0 || num>GestionLista.tamanio()) {
-				System.out.println("Debe escoger un elemento de la lista.");	
+			if(num<1 || num>GestionLista.tamanio()) {
+				System.out.println("Debe elegir un elemento de la lista.");	
 			}else {
 			controlador.GestionLista.borrar(num-1);
 			listadoVivienda();
