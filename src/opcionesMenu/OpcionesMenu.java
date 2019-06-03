@@ -3,6 +3,7 @@ package opcionesMenu;
 import java.util.Collections;
 import java.util.Comparator;
 import controlador.Comparador;
+import controlador.GestionLista;
 import hospedaje.Hotel;
 import hospedaje.Pension;
 import tipos.TpCAS;
@@ -389,11 +390,15 @@ public static void aniadirParticular() {
 		listadoVivienda();
 		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
 		
-		int num = Teclado.pideDatoEntero("\nIntroduzca el nº de la vivienda a borrar: ");
-		controlador.GestionLista.borrar(num-1);
-		listadoVivienda();
+		if(GestionLista.tamanio()==0) {
+			System.out.println("La lista de viviendas está vacia");
+		}else {
+			int num = Teclado.pideDatoEntero("\nIntroduzca el nº de la vivienda a borrar: ");
+			controlador.GestionLista.borrar(num-1);
+			listadoVivienda();
+		}
 	}
-
+	
 	public static void listarVivienda() {
 
 		System.out.println("\nHa elegido la opción listar el contenido de vivienda");
