@@ -80,8 +80,8 @@ public class OpcionesMenu {
 		try {
 		numHabitaciones = Teclado.pideDatoEntero("Introduzca el nº de habitaciones: ");
 		
-		}catch (Exception e) {
-			System.out.println("Debe escribir un número");		
+		}catch (Exception e) {		
+			System.out.println("Debe escribir un número");
 		}
 		}while (numHabitaciones ==0);
 		
@@ -507,14 +507,14 @@ public static void aniadirParticular() {
 		for (Vivienda v : controlador.GestionLista.getLista()) {
 			if (v instanceof Hotel) {
 				Hotel h = (Hotel) v;
-				System.out.println((++cont) + " Hotel con nº Catastro: " + h.getNumCatastro() + "," + " Pago con: "
+				System.out.println((++cont) + " Hotel con [nº Catastro: " + h.getNumCatastro() + "," + " Pago con: "
 						+ h.getTipoPAGO() + ", nº habitaciones: " + h.getNumHabitaciones()
 						+ ", nº de comedores: " + h.getNumComedores()+ ", Para la época: "+ h.getEpoca()+"]");
 			}
 			
 			if (v instanceof Pension) {
 				Pension p = (Pension) v;
-				System.out.println((++cont) + " Pensión con nº Catastro: " + p.getNumCatastro() + "," + " Pago con: "
+				System.out.println((++cont) + " Pensión con [nº Catastro: " + p.getNumCatastro() + "," + " Pago con: "
 							+ p.getTipoPAGO() + ", Opinión de Viajeros: " + p.getOpinionViajeros()
 							+ ", nº de Personas por Habitación:  " + p.getPaxPorHabitacion()+ ", Para la época: "+ p.getEpoca()+"]") ;
 				}
@@ -523,14 +523,14 @@ public static void aniadirParticular() {
 					
 		if (v instanceof Vacacional) {
 			Vacacional c = (Vacacional) v;
-			System.out.println((++cont) + " Vivienda vacacional con nº Catastro: " + c.getNumCatastro() + "," + " Superficie:  "
+			System.out.println((++cont) + " Vivienda vacacional con [nº Catastro: " + c.getNumCatastro() + "," + " Superficie:  "
 						+ c.getSuperficie() + " metros cuadrados, nº de aires acondicionados: " + c.getNumAireAcond()
 						+ ", Días de ocupación:  " + c.getDiasOcupado()+ ", Distancia a la playa: "+ c.getDistanciaPlaya() + " metros, Para la época: " + c.getEpoca()+"]") ;
 			}
 		
 		if (v instanceof Particular) {
 			Particular t = (Particular) v;
-			System.out.println((++cont) + " Vivienda particular con nº Catastro: " + t.getNumCatastro() + "," + " Superficie:  "
+			System.out.println((++cont) + " Vivienda particular con [nº Catastro: " + t.getNumCatastro() + "," + " Superficie:  "
 						+ t.getSuperficie() + " metros cuadrados, nº de aires acondicionados: " + t.getNumAireAcond()
 						+ ", nº de baños:  " + t.getNumBanos()+ ", Tipo de casa: "+ t.getTipoCASA()+"]") ;
 			}
