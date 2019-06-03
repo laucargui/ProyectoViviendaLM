@@ -273,18 +273,18 @@ public static void aniadirParticular() {
 					System.out.println("4. Número de comedores ");
 					System.out.println("5. Época");
 					
-					Integer opcion = 0;
+					Integer opcionH = 0;
 					
 					try {
-					opcion = Teclado.pideDatoEntero("Opción elegida: ");
+					opcionH = Teclado.pideDatoEntero("Opción elegida: ");
 					}
 					catch(Exception e) {
 					}
-					if(opcion <1 || opcion >5) {
+					if(opcionH <1 || opcionH >5) {
 						System.out.println("Debe elegir un número del 1 al 5.");
 					}else {
 					
-					switch (opcion) {
+					switch (opcionH) {
 				case 1:
 					((Hotel)v).setNumCatastro(Teclado.pideDatoCadena("Introduzca el nº de catastro: "));
 					break;
@@ -300,10 +300,10 @@ public static void aniadirParticular() {
 				case 5:
 				  ((Hotel)v).setTipoEPO(utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual ")));	
 					break;
-				}	      
+			     	}	      
 				  }
-			
 				}
+				
 				
 				if (v instanceof Pension) {
 						
@@ -316,18 +316,18 @@ public static void aniadirParticular() {
 					System.out.println("4. Personas por habitación ");
 					System.out.println("5. Época");
 						
-					Integer opcion = 0;
+					Integer opcionP = 0;
 					
 					try {
-					opcion = Teclado.pideDatoEntero("Opción elegida: ");
+					opcionP = Teclado.pideDatoEntero("Opción elegida: ");
 					}
 					catch(Exception e) {
 					}
-					if(opcion <1 || opcion >4) {
+					if(opcionP <1 || opcionP >4) {
 					System.out.println("Debe elegir un nÃºmero del 1 al 5.");
 					}else {
 						
-					switch (opcion) {
+					switch (opcionP) {
 					case 1:
 						((Pension)v).setNumCatastro(Teclado.pideDatoCadena("Introduzca el nº de catastro: "));
 						break;
@@ -345,7 +345,8 @@ public static void aniadirParticular() {
 					      break;
 					}    
 				}
-			}
+				}
+			
 					
 				if (v instanceof Particular) {
 						
@@ -401,18 +402,18 @@ public static void aniadirParticular() {
 					System.out.println("5. Distancia a la playa ");
 					System.out.println("6. Época");
 								
-					Integer opcion = 0;
+					Integer opcionV = 0;
 								
 					try {
-					    opcion = Teclado.pideDatoEntero("Opción elegida: ");
+						opcionV = Teclado.pideDatoEntero("Opción elegida: ");
 					}
 					catch(Exception e) {
 					}
-					if(opcion <1 || opcion >6) {
+					if(opcionV <1 || opcionV >6) {
 					System.out.println("Debe elegir un número del 1 al 6.");
 					}else {
 					
-					switch (opcion) {
+					switch (opcionV) {
 					case 1:
 					((Vacacional)v).setNumCatastro(Teclado.pideDatoCadena("Introduzca el nº de catastro: "));
 					     break;
@@ -433,13 +434,15 @@ public static void aniadirParticular() {
 					      break;
 			       }    		
 			}
-		}	
+		}
+			
 			    	
 		else{
 		}	
 			    	
 		listadoVivienda();				
 	 }
+			
 	}
 
 	public static void borrarVivienda() {
