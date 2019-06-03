@@ -1,11 +1,25 @@
 package start;
 
+import hospedaje.Hotel;
+import hospedaje.Pension;
 import opcionesMenu.OpcionesMenu;
+import tipos.TpCAS;
+import tipos.TpEPO;
+import tipos.TpPAGO;
+import unifamiliar.Particular;
+import unifamiliar.Vacacional;
 import utilidades.Teclado;
 
 public class App {
 
 	public static void main(String[] args) {
+		
+		controlador.GestionLista.anadir(new Hotel("HGHKJ", TpPAGO.TODO, 3,2,TpEPO.ANUAL));
+		controlador.GestionLista.anadir(new Hotel("AAAAA", TpPAGO.TARJETA, 5,2,TpEPO.ANUAL));
+		controlador.GestionLista.anadir(new Pension("HGHKJ", TpPAGO.TODO, "Buena",2,TpEPO.ANUAL));
+		controlador.GestionLista.anadir(new Vacacional("VCVCV", 2,10, 2,20, TpEPO.VERANO));
+		controlador.GestionLista.anadir(new Particular("PRTBC", 10,1, 2, TpCAS.PISO));
+		
 
 		int opcion = 0;
 
