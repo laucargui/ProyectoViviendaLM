@@ -153,22 +153,52 @@ public class OpcionesMenu {
 		System.out.println("\nIntroduzca los siguientes datos para la vivienda Vacacional");
 		System.out.println("***********************************************************");
 		String numCatastro = Teclado.pideDatoCadena("Introduzca el nº de catastro: ");
-		Integer superficie = Teclado.pideDatoEntero("Introduzca la superficie, en metros: ");
 		
-		/*Integer numComedores = 0;
+		Integer superficie =0;
 		do {
 			try {
-				numComedores = Teclado.pideDatoEntero("Introduzca el nº de comedores: ");
+				superficie = Teclado.pideDatoEntero("Introduzca la superficie, en metros: ");
 			}catch (Exception e) {
-				System.out.println("Debe escribir un número");		
+				System.out.println("Debe escribir un número");
 			}
-			}while (numComedores ==0);*/
-		Integer numAireAcond =  Teclado.pideDatoEntero("Introduzca el nº de aparatos de aire acondicionado: ");
-		Integer diasOcupado = Teclado.pideDatoEntero("Introduzca los días de cocupación: ");
-		Integer distanciaPlaya = Teclado.pideDatoEntero("Introduzca la distacia a la playa, en metros: ");
+		}while (superficie ==0);
+		
+		Integer numAireAcond =0;
+		do {
+			try {
+				numAireAcond =  Teclado.pideDatoEntero("Introduzca el nº de aparatos de aire acondicionado: ");
+			}catch (Exception e) {
+				System.out.println("Debe escribir un número");
+			}
+		}while (numAireAcond ==0);
+		
+		Integer diasOcupado=0;
+		do {
+			try {
+				diasOcupado = Teclado.pideDatoEntero("Introduzca los días de cocupación: ");
+			}catch (Exception e) {
+				System.out.println("Debe escribir un número");
+			}
+		}while (diasOcupado ==0);
+		
+		Integer distanciaPlaya=0;
+		do {
+			try {
+				distanciaPlaya = Teclado.pideDatoEntero("Introduzca la distacia a la playa, en metros: ");
+			}catch (Exception e) {
+				System.out.println("Debe escribir un número");
+			}
+		}while (distanciaPlaya ==0);
+		
 		TpEPO tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual "));
-				
-		controlador.GestionLista.anadir(new Vacacional(numCatastro, numAireAcond,superficie, diasOcupado,distanciaPlaya, tipoEPO));
+		while (tipoEPO == null) { 
+			try {
+				System.out.println("Debe escribir un tipo de época válido.");
+		tipoEPO = utilidades.ConvertirTipo.toTpEPO(Teclado.pideDatoCadena("Introduzca la época de uso: Verano, Invierno, Anual: "));
+			}catch (Exception e) {
+			}
+		}
+		controlador.GestionLista.anadir(new Vacacional(numCatastro, superficie,numAireAcond, diasOcupado,distanciaPlaya, tipoEPO));
 		listadoVivienda();
 		
 	}
@@ -386,13 +416,12 @@ public static void aniadirParticular() {
 		System.out.println("\nHa elegido la opción borrar vivienda");
 		System.out.println("************************************");
 		
-		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
-		listadoVivienda();
-		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
-		
 		if(GestionLista.tamanio()==0) {
 			System.out.println("La lista de viviendas está vacia");
 		}else {
+			System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
+			listadoVivienda();
+			System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
 			int num = Teclado.pideDatoEntero("\nIntroduzca el nº de la vivienda a borrar: ");
 			controlador.GestionLista.borrar(num-1);
 			listadoVivienda();
@@ -403,9 +432,14 @@ public static void aniadirParticular() {
 
 		System.out.println("\nHa elegido la opción listar el contenido de vivienda");
 		System.out.println("****************************************************");
+		
+		if(GestionLista.tamanio()==0) {
+			System.out.println("La lista de viviendas está vacia");
+		}else {
 		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
 		listadoVivienda();
 		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
+		}
 	}
 
 
